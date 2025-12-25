@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Swetha 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      z-index: 2;
+      animation: pop 1s ease;
+    }
+    h1 {
+      font-size: 42px;
+      color: #ff2e63;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      color: #444;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      background: #ff2e63;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    @keyframes pop {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .confetti {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      top: -10px;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>🎂 Happy Birthday Swetha 🎉</h1>
+    <p>May your life be filled with smiles, love & success 💖</p>
+    <p>Have the best day ever ✨</p>
+    <button onclick="playMusic()">▶ Play Birthday Song</button>
+  </div>
+
+  <!-- Online Birthday Song -->
+  <audio id="song">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Confetti effect
+    for (let i = 0; i < 120; i++) {
+      const c = document.createElement("div");
+      c.className = "confetti";
+      c.style.left = Math.random() * 100 + "vw";
+      c.style.background =
+        ["#ff2e63", "#ffd166", "#06d6a0", "#118ab2"][Math.floor(Math.random() * 4)];
+      c.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(c);
+    }
+
+    function playMusic() {
+      document.getElementById("song").play();
+    }
+  </script>
+
+</body>
+</html>
